@@ -1,0 +1,407 @@
+You are a Staff Software Architect and Senior Full-Stack Engineer.
+Build a production-ready marketplace platform inspired by Urban Company (formerly UrbanClap) for booking home services.
+This should NOT copy any proprietary code or branding. Instead, build an original, scalable, modern platform with similar business capabilities.
+The application should be enterprise-grade, modular, scalable, secure, and deployment-ready.
+Tech Stack
+Frontend
+Next.js 15
+React 19
+TypeScript
+Tailwind CSS
+Shadcn UI
+React Hook Form
+Zod Validation
+TanStack Query
+Zustand
+Framer Motion
+React Leaflet / Google Maps
+PWA Support
+Backend
+NestJS
+TypeScript
+REST API
+GraphQL
+WebSockets
+Prisma ORM
+PostgreSQL
+Redis
+BullMQ
+JWT Authentication
+OAuth
+RBAC
+Swagger
+Storage
+PostgreSQL
+Redis Cache
+S3-compatible storage
+Cloudinary for images
+Infrastructure
+Docker
+Docker Compose
+GitHub Actions
+Nginx
+Kubernetes Ready
+Terraform Ready
+Notifications
+Firebase Push
+Email
+SMS
+WhatsApp integration
+In-app notifications
+Payments
+Design abstraction layer supporting:
+Stripe
+Razorpay
+PayPal
+Features:
+Split payments
+Wallet
+Refunds
+Coupons
+GST invoices
+Authentication
+Customer
+Provider
+Admin
+Support Staff
+Use
+Email OTP
+Phone OTP
+Google Login
+Apple Login
+JWT
+Refresh Tokens
+Session Management
+User Roles
+Customer
+Can
+Register
+Login
+Browse services
+Search services
+View providers
+Book instantly
+Schedule booking
+Live tracking
+Chat
+Voice call
+Video consultation
+Wallet
+Payment
+Reviews
+Ratings
+Wishlist
+Referral
+Loyalty Points
+Service Provider
+Can
+Register
+KYC Verification
+Upload Aadhaar/PAN/ID
+Upload Certificates
+Bank Verification
+Dashboard
+Earnings
+Calendar
+Bookings
+Routes
+Reviews
+Payouts
+Tax Reports
+Cancellation Metrics
+Availability
+Working Hours
+Vacation Mode
+Service Radius
+Emergency Availability
+Admin
+Dashboard
+Total Revenue
+Daily Orders
+Active Users
+Active Providers
+Pending KYC
+Payments
+Refunds
+Analytics
+Heat Maps
+Management
+Services
+Categories
+Cities
+Pricing
+Coupons
+Providers
+Customers
+Disputes
+Notifications
+CMS
+Home Page
+Hero
+Search bar
+Location picker
+Popular services
+Categories
+Featured professionals
+Offers
+Membership plans
+Testimonials
+FAQs
+Blog
+Download App
+Footer
+Service Categories
+Cleaning
+Salon
+Spa
+Massage
+AC Repair
+Electrician
+Plumber
+Carpenter
+Painting
+Pest Control
+Water Purifier
+Appliance Repair
+TV Repair
+Refrigerator
+Washing Machine
+Laptop Repair
+Mobile Repair
+Home Deep Cleaning
+Kitchen Cleaning
+Bathroom Cleaning
+Sofa Cleaning
+Car Wash
+Driver on Demand
+Packers & Movers
+Gardening
+Home Security
+CCTV Installation
+Smart Home Installation
+Search
+Search by
+Category
+Keyword
+Location
+Price
+Ratings
+Availability
+Nearby
+Emergency
+AI Suggestions
+Voice Search
+Booking Flow
+Choose Service
+↓
+Choose Variant
+↓
+Choose Provider
+↓
+Select Date
+↓
+Select Time
+↓
+Address
+↓
+Extras
+↓
+Payment
+↓
+Booking Confirmation
+↓
+Live Tracking
+↓
+Completion
+↓
+Rating
+Booking Features
+Instant Booking
+Scheduled Booking
+Emergency Booking
+Recurring Booking
+Subscription Booking
+Package Booking
+Group Booking
+Provider Discovery
+Nearby providers
+Top Rated
+Fastest Arrival
+Lowest Price
+Most Experienced
+AI Recommended
+Maps
+Customer Location
+Provider Live Location
+ETA
+Navigation
+Service Radius
+Live Tracking
+Order Timeline
+Provider En Route
+Arrived
+Service Started
+Service Completed
+OTP Verification
+Chat System
+Realtime Chat
+Images
+Documents
+Voice Notes
+Typing Indicator
+Read Receipts
+Video Call Ready
+Review System
+Ratings
+Photos
+Videos
+Verified Reviews
+Admin Moderation
+Wallet
+Credits
+Refund Wallet
+Cashback
+Reward Points
+Referral Earnings
+Subscription Plans
+Premium Membership
+Free Visit
+Priority Booking
+Discounts
+Exclusive Providers
+Annual Plans
+Coupons
+Promo Codes
+Referral Codes
+Seasonal Offers
+Cashback
+Automatic Coupon Recommendation
+Notification Center
+Booking Updates
+Payment Updates
+Promotions
+Messages
+System Alerts
+Analytics
+Revenue
+Bookings
+Conversion
+Cancellation Rate
+Repeat Customers
+Retention
+CAC
+LTV
+GMV
+Provider Utilization
+AI Features
+AI Service Recommendation
+Price Estimation
+Demand Prediction
+Smart Scheduling
+Fraud Detection
+Auto Customer Support
+AI Chatbot
+Review Summarization
+Personalized Offers
+Dynamic Pricing
+Security
+Rate Limiting
+Encryption
+Audit Logs
+Role Permissions
+2FA
+GDPR Ready
+OWASP Compliance
+APIs
+Authentication
+Users
+Providers
+Bookings
+Payments
+Notifications
+Reviews
+Wallet
+Coupons
+Subscriptions
+Admin
+Analytics
+Chat
+Maps
+Database Design
+Generate complete Prisma schema including:
+Users
+Roles
+Providers
+KYC
+Addresses
+Services
+Categories
+Bookings
+Booking Items
+Payments
+Wallet
+Transactions
+Reviews
+Chats
+Messages
+Notifications
+Coupons
+Memberships
+Subscriptions
+Invoices
+Payouts
+Availability
+Calendars
+Service Areas
+Audit Logs
+Folder Structure
+Create a scalable monorepo using Turborepo.
+apps/
+web
+admin
+api
+packages/
+ui
+types
+auth
+database
+config
+utils
+notifications
+payments
+analytics
+UI Design
+Use:
+Shadcn UI
+Modern glassmorphism
+Responsive layout
+Dark mode
+Mobile-first
+Accessibility (WCAG AA)
+Smooth animations
+Skeleton loaders
+Empty states
+Error boundaries
+Deliverables
+Generate:
+Complete system architecture.
+Database ER diagram.
+Prisma schema.
+REST + GraphQL API specification.
+Authentication flow.
+RBAC implementation.
+Complete UI/UX wireframes.
+Backend folder structure.
+Frontend folder structure.
+Admin dashboard.
+Customer portal.
+Provider portal.
+Deployment guide using Docker and Kubernetes.
+CI/CD pipeline using GitHub Actions.
+Testing strategy (unit, integration, E2E).
+Production security checklist.
+Performance optimization plan.
+SEO strategy.
+Mobile PWA strategy.
+A phased implementation roadmap (MVP → V1 → V2 → Enterprise).
+The code should follow clean architecture, SOLID principles, Domain-Driven Design (DDD), and be production-ready with comprehensive documentation, comments, and best practices.
