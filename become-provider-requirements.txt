@@ -1,0 +1,110 @@
+Become a Provider — Registration & Verification
+Companion spec to requirements.txt, scoped to the provider onboarding flow for HomeNest.
+
+Entry Point
+"Become a Provider" link in the homepage header/footer
+Leads to a public landing page explaining benefits (earnings, flexibility, support)
+Call-to-action: "Register as a Provider"
+
+Registration Flow (multi-step form)
+Step 1: Personal Details
+Full name
+Email address
+Phone number
+Password (or OTP-based signup, matching customer auth)
+
+Step 2: Service Details
+A provider can offer multiple services, including services from different categories
+(e.g. a single provider can register for both "Electrician" and "AC Repair")
+Select one or more individual services from the existing catalog (not just a category —
+picking a category expands to let the provider choose specific services within it)
+Per selected service: optional custom price override (defaults to the service's base price)
+Years of experience (optional)
+Short bio / description (optional)
+Provider can add further services later from their dashboard after initial approval —
+each newly added service goes through its own verification if it requires a license
+not already verified for this provider
+
+Step 3: Address Details
+Address line 1 / line 2
+City
+State / region
+Postal code
+Country
+Service radius or areas willing to serve
+
+Step 4: Contact Details
+Primary phone number (for customer contact)
+Alternate phone number (optional)
+Emergency contact (optional)
+
+Step 5: License & Verification Documents
+Government-issued photo ID and proof of address are submitted once per provider,
+regardless of how many services they offer
+License requirements are per category, not per provider — if the selected services span
+multiple categories that each require a license, the provider uploads one license per
+distinct category, e.g.:
+Electrician — electrical work license/certification
+Plumber — plumbing license
+Salon/Spa — cosmetology or salon license
+Pest Control — pest control operator license
+General/unlicensed categories (e.g. cleaning) — no separate license needed, photo ID suffices
+Per license: license number, issuing authority, expiry date, uploaded document (PDF/image)
+Upload government-issued photo ID (for identity verification)
+Upload proof of address (utility bill or bank statement, optional if address is pre-verified)
+
+Step 6: Review & Submit
+Summary of all entered details for provider to confirm
+Terms of service and provider agreement acceptance checkbox
+Submit for verification
+
+Post-Submission State
+Provider account created with status: Pending Verification
+Provider can log in and see a "Verification Pending" dashboard state
+Provider cannot appear in search results, receive bookings, or go live until verified
+
+Verification Process (Admin side)
+New submissions appear in Admin > Providers > Pending Verification queue
+Admin can view all submitted details, licenses (one per category), and selected services
+Two levels of approval:
+Identity approval — overall provider identity/address verified once (photo ID + address)
+Per-category license approval — each license reviewed and approved/rejected independently
+A provider only becomes bookable for a given service once both identity is approved AND
+the license for that service's category (if required) is approved
+A provider can be Active for some services while a newly added category is still pending
+Admin actions per submission (identity or per-license):
+Approve
+Reject — with a required reason/comment sent to the provider
+Request more info — provider notified what's missing/unclear
+License expiry tracking: flag license nearing/past expiry for re-verification; affected
+services are paused (hidden from booking) until the license is renewed and re-approved
+
+Notifications
+Provider notified by email/in-app when:
+Submission received
+Status changes (approved / rejected / action required)
+License nearing expiry (future reminder)
+
+Data Model Additions (builds on existing Provider and Service models)
+ProviderService: provider_id, service_id, custom_price (nullable), status
+(enum: pending, approved, rejected) — many-to-many join, one row per service a provider offers
+ProviderLicense: provider_id, category_id, license_number, issuing_authority, expiry_date,
+file_url, status (enum: pending, approved, rejected, expired) — one row per category requiring
+a license, not per provider or per service
+KYCDocument: provider_id, document_type (id/address_proof), file_url, status, uploaded_at —
+identity-level documents, submitted once per provider
+Address: already exists as a shared entity — link provider to an Address record
+Provider.identity_status: enum (pending, action_required, approved, rejected)
+Provider.rejection_reason: text, nullable
+
+Validation Rules
+All required fields must be filled before submission is allowed
+License expiry date must be in the future at time of submission
+File uploads restricted to PDF/JPG/PNG, max size limit (e.g. 10MB)
+Phone numbers and postal codes validated by format per country
+
+Out of Scope for This Slice (future work)
+Automated license verification via third-party ID-check services
+Bank account / payout verification (separate "Payouts" milestone)
+Background checks
+Video interview step

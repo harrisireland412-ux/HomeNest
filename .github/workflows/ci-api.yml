@@ -58,6 +58,16 @@ jobs:
       - name: Lint
         run: uv run ruff check .
 
+      - name: Run migrations
+        env:
+          DATABASE_URL: postgresql+asyncpg://homenest:homenest@localhost:5432/homenest
+        run: uv run alembic upgrade head
+
+      - name: Seed database
+        env:
+          DATABASE_URL: postgresql+asyncpg://homenest:homenest@localhost:5432/homenest
+        run: uv run python -m app.db.seed
+
       - name: Run tests
         env:
           DATABASE_URL: postgresql+asyncpg://homenest:homenest@localhost:5432/homenest

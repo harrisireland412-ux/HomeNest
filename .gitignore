@@ -8,6 +8,8 @@ venv/
 .mypy_cache/
 .ruff_cache/
 *.egg-info/
+apps/api/uploads/
+apps/api/*.db
 
 # Node
 node_modules/
@@ -20,6 +22,9 @@ dist/
 .env
 .env.local
 .env.*.local
+
+# Secrets
+.credentials.local
 
 # OS
 .DS_Store
